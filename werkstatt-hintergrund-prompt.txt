@@ -1,0 +1,3 @@
+Erstellt mit der integrierten Bildgenerierung (imagegen).
+
+Use case: stylized-concept. Asset type: wide landscape background illustration for an offline browser game called Andris Monsterlabor. A cosy inventive scientist's workshop inside a teal industrial laboratory, wooden workbench with gears, batteries, rope and tools, shelves of spare parts, a friendly homemade robot under construction, pipes and softly glowing lamps. Hand-painted polished cartoon game environment, warm amber lighting mixed with turquoise, clear shapes, playful adventurous mood. Wide room viewed straight on, detailed tools and machinery at the edges, calmer central space behind game interface panels. No people, no text, no letters, no logos, no interface. Opaque background.

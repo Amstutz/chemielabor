@@ -1,0 +1,1562 @@
+/* GESTALTUNG: Farben, Layout und Animationen. */
+#monsterMinispiel {
+  width: min(920px, 94vw);
+  box-sizing: border-box;
+  border: 2px solid #8baf9a;
+  border-radius: 18px;
+  background: #123e46;
+  color: #effbf4;
+  max-height: 94vh;
+  overflow: auto;
+}
+
+#monsterMinispiel::backdrop {
+  background: #071e30cc;
+}
+
+#schleuderFeld {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  touch-action: none;
+  background: #9cdbef url('monsterschleuder-hintergrund.png') center / 100% 100% no-repeat;
+}
+
+#monsterMinispiel label {
+  display: inline-block;
+  margin: 12px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #174c54 url('labor-hintergrund.png') center center / cover fixed no-repeat;
+  color: #17324d;
+  margin: 0;
+  padding: 24px;
+}
+
+body.monsterangriff {
+  background-image: url('monsterangriff-hintergrund.png');
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 60px auto 100px;
+  background: rgb(12 48 53 / 90%);
+  color: #effbf4;
+  border: 2px solid #8baf9a;
+  box-shadow: 0 18px 55px #061f2870, inset 0 0 24px #80cfb312;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 36px;
+  border-radius: 20px;
+}
+
+main > h1 {
+  color: #ffe0a0;
+}
+
+main.mitHaustieren {
+  margin-top: 90px;
+}
+
+#tierPromenade {
+  position: absolute;
+  bottom: calc(100% - 3px);
+  left: 20px;
+  right: 20px;
+  height: 74px;
+  display: flex;
+  gap: 16px;
+  pointer-events: none;
+}
+
+#tierPromenade[hidden] {
+  display: none;
+}
+
+.tierBereich {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.tierBegleiter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 54px;
+  height: 56px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  animation: tierSpaziergang 18s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+
+.tierBegleiter.laufen {
+  animation-play-state: running;
+}
+
+.tierBegleiter {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.tierBegleiter:hover, .tierBegleiter:focus {
+  animation-play-state: paused;
+}
+
+.tierBegleiter:focus-visible {
+  outline: 2px solid #ffe0a0;
+  border-radius: 8px;
+}
+
+.tierBlick {
+  display: inline-block;
+  transform-origin: bottom center;
+  transition: transform 0.12s ease-out;
+}
+
+.tierReaktion {
+  position: absolute;
+  top: -24px;
+  left: 12px;
+  font-size: 24px;
+  pointer-events: none;
+}
+
+.tierReaktion.tierRuf {
+  top: -32px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background: #fff5cf;
+  color: #183c40;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.tierBegleiter.spielen .tierBild {
+  animation: tierSchritte 0.3s ease-in-out infinite;
+}
+
+.tierBegleiter.streicheln .tierBild {
+  animation: tierAtmen 0.8s ease-in-out infinite;
+}
+
+#tierMenue {
+  position: fixed;
+  z-index: 100;
+  box-sizing: border-box;
+  width: 220px;
+  max-width: calc(100vw - 16px);
+  padding: 14px;
+  border: 2px solid #8baf9a;
+  border-radius: 12px;
+  color: #effbf4;
+  background: #173f42;
+  box-shadow: 0 8px 24px #0006;
+}
+
+#tierMenue button {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+}
+
+#tierMenue p {
+  margin: 0 0 6px;
+  font-weight: bold;
+}
+
+.tierBild {
+  display: inline-block;
+  font-size: 34px;
+  line-height: 1;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 3px 2px #0005);
+}
+
+.tierBegleiter.erwachsen .tierBild {
+  font-size: 44px;
+}
+
+.minionBild {
+  width: 1.05em;
+  height: 1.35em;
+  vertical-align: bottom;
+}
+
+.minionBild svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tierKarte .minionBild {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.tierBegleiter.laufen .tierBild {
+  animation: tierSchritte 0.5s ease-in-out infinite;
+}
+
+.tierBegleiter.sitzen .tierBild {
+  animation: tierAtmen 3s ease-in-out infinite;
+}
+
+.tierBegleiter.liegen .tierBild {
+  transform: rotate(-14deg) scaleY(0.8);
+}
+
+.tierBegleiter.liegen::after {
+  content: 'z Z';
+  position: absolute;
+  right: -4px;
+  top: -2px;
+  font-size: 14px;
+  color: #e2f5d3;
+}
+
+@keyframes tierSpaziergang {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 54px);
+  }
+}
+
+@keyframes tierSchritte {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(4deg);
+  }
+}
+
+@keyframes tierAtmen {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tierBegleiter, .tierBegleiter .tierBild {
+    animation: none !important;
+  }
+  .tierBlick {
+    transition: none;
+  }
+}
+
+#startmenue select, #antwort {
+  background: #e4f0e7;
+  color: #173b3e;
+  border-color: #96b5a0;
+}
+
+#spiel > #aufgabe {
+  color: #fff2cc;
+}
+
+#hintergrund {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#hintergrund span {
+  position: absolute;
+  color: #895378;
+  background: #fffffff0;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: clamp(18px, 3vw, 36px);
+  font-weight: bold;
+}
+
+#hintergrund span:nth-child(1) {
+  color: rebeccapurple;
+  top: 20px;
+  left: 5%;
+  transform: rotate(-6deg);
+}
+
+#hintergrund span:nth-child(2) {
+  color: royalblue;
+  top: 24px;
+  right: 5%;
+  transform: rotate(6deg);
+}
+
+#hintergrund span:nth-child(3) {
+  color: #b45309;
+  bottom: 70px;
+  left: 5%;
+  transform: rotate(-6deg);
+}
+
+#hintergrund span:nth-child(4) {
+  color: seagreen;
+  bottom: 22px;
+  right: 5%;
+  transform: rotate(4deg);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+#aufgabe {
+  font-size: clamp(26px, 5vw, 48px);
+  font-weight: bold;
+  margin: 36px 0;
+  overflow-wrap: anywhere;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 20px;
+  border: 2px solid #73879b;
+  border-radius: 8px;
+  background: white;
+  color: #17324d;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  font-size: 24px;
+  border: 2px solid #73879b;
+  border-radius: 8px;
+}
+
+button {
+  background: #155c9c;
+  color: white;
+  border: 0;
+  border-radius: 8px;
+  padding: 14px 20px;
+  font-size: 18px;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #104775;
+}
+
+#musikKnopf {
+  font-size: 15px;
+  padding: 8px 12px;
+  margin: 0 0 12px;
+}
+
+#musikAuswahl {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+#musikAuswahl #musikKnopf {
+  margin: 0;
+}
+
+#musikAuswahl label {
+  margin: 0;
+  font-size: 14px;
+}
+
+#soundtrack {
+  width: auto;
+  font-size: 15px;
+  padding: 7px;
+  background: #e4f0e7;
+}
+
+button:disabled {
+  background: #657587;
+  cursor: default;
+}
+
+#labor {
+  background: #173f42;
+  border: 1px solid #698e7c;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 12px 0;
+}
+
+#labor p {
+  margin: 6px 0;
+}
+
+#laborstatus:empty {
+  display: none;
+}
+
+#laborzustand {
+  padding: 10px;
+  border-radius: 8px;
+  background: #214b43;
+  color: #effbf4;
+}
+
+#laborzustand.beschaedigt {
+  background: #ffe1d9;
+  color: #8b2914;
+  border: 2px solid #c65b40;
+}
+
+#laborLeiste {
+  width: 100%;
+  height: 26px;
+  accent-color: seagreen;
+}
+
+#laborLeiste.beschaedigt {
+  accent-color: #c65b40;
+}
+
+#hungerFeld {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid #8baf9a;
+  border-radius: 10px;
+  background: #214b43;
+}
+
+#hungerFeld p {
+  margin: 0 0 8px;
+}
+
+#hungerLeiste {
+  width: 100%;
+  height: 22px;
+  accent-color: #e9ad52;
+}
+
+#essenKnopf {
+  margin-top: 8px;
+  padding: 8px 12px;
+}
+
+#haustierZimmer {
+  box-sizing: border-box;
+  width: min(850px, 94vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 24px;
+  border: 2px solid #8baf9a;
+  border-radius: 16px;
+  background: #f0f5e9;
+  color: #17324d;
+}
+
+#haustierZimmer::backdrop {
+  background: rgb(10 35 40 / 65%);
+}
+
+#tierAuswahl, #meineTiere {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tierKarte {
+  flex: 1 1 220px;
+  padding: 14px;
+  background: #dde8d6;
+  border-radius: 12px;
+}
+
+.tierKarte h3 {
+  margin: 0;
+}
+
+.tierKarte button, .tierKarte select {
+  font-size: 15px;
+  padding: 8px;
+}
+
+.tierHungerLeiste {
+  display: flex;
+  gap: 2px;
+  width: fit-content;
+  padding: 6px;
+  background: #34322d;
+  border: 2px solid #6e6856;
+  margin: 10px 0 4px;
+}
+
+.tierKeule {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.tierKeule svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.tierKeuleLeer {
+  --fleisch: #666052;
+  --licht: #817969;
+  --knochen: #958c77;
+}
+
+.tierKeuleFuellung {
+  --fleisch: #a75127;
+  --licht: #ed9b49;
+  --knochen: #fff0ca;
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+}
+
+.tierHungerText {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+#tierMeldung {
+  color: #ffe0a0;
+}
+
+#essensAuswahl {
+  font-size: 16px;
+  padding: 8px;
+}
+
+#kueche {
+  box-sizing: border-box;
+  width: min(760px, 94vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 24px;
+  border: 2px solid #d7a76a;
+  border-radius: 16px;
+  background: #fff7e8;
+  color: #17324d;
+}
+
+#kueche::backdrop {
+  background: rgb(10 35 40 / 65%);
+}
+
+#rezepte, #speisekammer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+#rezepte > div, #speisekammer > li {
+  flex: 1 1 200px;
+  padding: 12px;
+  background: #f1e4cd;
+  border-radius: 10px;
+}
+
+.baustellen {
+  padding: 12px;
+  margin: 12px 0;
+  background: #fff3cd;
+  color: #17324d;
+  border-radius: 10px;
+}
+
+.baustellen p {
+  margin: 8px 0;
+}
+
+#monster {
+  float: right;
+  font-size: 32px;
+  line-height: 1;
+}
+
+#bauplaene {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  clear: both;
+}
+
+#bauplaene > div {
+  flex: 1 1 200px;
+}
+
+#bauplaene > div {
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+#bauplaene button {
+  margin-top: 6px;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+#bauplaene small {
+  display: block;
+  margin-top: 5px;
+}
+
+#werkstatt {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  overflow-y: auto;
+  border: 0;
+  border-radius: 0;
+  padding: 24px;
+  background: linear-gradient(rgb(8 32 36 / 22%), rgb(8 32 36 / 32%)), url('werkstatt-hintergrund.png') center / cover fixed no-repeat;
+  color: #f4fff6;
+}
+
+/* Nur die Flächen sind durchsichtig;
+Schrift und Symbole bleiben kräftig. */
+    #werkstatt #bauplaene > div,
+    #werkstatt #werkbank,
+    #werkstatt #gegenstaende li,
+    #werkstatt .baustellen {
+  background: rgb(9 43 45 / 62%);
+  color: #fff6df;
+  border: 1px solid rgb(222 175 103 / 60%);
+  box-shadow: 0 3px 12px rgb(0 15 18 / 18%);
+  text-shadow: 0 1px 3px #071f22;
+}
+
+#werkstatt > h2, #werkstatt > p, #werkstatt #sammlung {
+  background: transparent;
+  color: #fff6df;
+  padding: 14px;
+  border-radius: 12px;
+  text-shadow: 0 2px 4px #071f22, 0 0 8px #071f22;
+}
+
+#werkstatt #sammlung {
+  border-color: rgb(222 175 103 / 60%);
+}
+
+#werkstatt button, #werkstatt select {
+  background: rgb(23 74 72 / 85%);
+  color: #fff6df;
+  border: 1px solid #cba66e;
+}
+
+#werkstatt button:disabled {
+  background: rgb(35 53 51 / 65%);
+  color: #d2d0bd;
+  border-color: #819088;
+}
+
+#werkstatt button:not(:disabled):hover {
+  background: rgb(87 68 39 / 95%);
+}
+
+#werkstatt button:focus-visible, #werkstatt select:focus-visible, #werkstatt summary:focus-visible {
+  outline: 3px solid #ffe0a0;
+  outline-offset: 3px;
+}
+
+#werkstatt select option {
+  background: #174a48;
+  color: #fff6df;
+}
+
+#werkstatt #zeichenblatt {
+  background: rgb(8 36 39 / 65%);
+  border-color: #cba66e;
+}
+
+#werkstatt::backdrop {
+  background: rgb(23 50 77 / 55%);
+}
+
+#werkstattOeffnen {
+  background: #436647;
+  width: 100%;
+}
+
+#werkbank {
+  margin-top: 20px;
+  padding: 16px;
+  background: #f4edff;
+  border: 2px solid #d6c4ef;
+  border-radius: 12px;
+}
+
+#werkbank summary {
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#zeichenblatt {
+  display: block;
+  width: min(100%, 500px);
+  height: auto;
+  background: white;
+  border: 2px solid #9673b7;
+  border-radius: 8px;
+  touch-action: none;
+  margin-top: 12px;
+  cursor: crosshair;
+}
+
+#zusatzOeffnen {
+  width: 100%;
+  background: #7044a0;
+}
+
+#zusatzOeffnen:disabled {
+  background: #657587;
+}
+
+#zusatz {
+  box-sizing: border-box;
+  width: min(600px, 94vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 0;
+  border-radius: 16px;
+  padding: 24px;
+  color: #17324d;
+}
+
+#zusatz::backdrop {
+  background: rgb(23 50 77 / 55%);
+}
+
+#bonusAufgabe {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#bonusBalken {
+  width: 100%;
+  height: 24px;
+  accent-color: #7044a0;
+}
+
+#taschenrechner {
+  background: #edf1f7;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 16px;
+}
+
+#rechnerFelder {
+  display: flex;
+  gap: 8px;
+  align-items: end;
+  flex-wrap: wrap;
+}
+
+#rechnerFelder label {
+  flex: 1 1 100px;
+  font-size: 14px;
+}
+
+#rechnerFelder input, #rechnerFelder select {
+  font-size: 18px;
+  padding: 8px;
+}
+
+#rechnerErgebnis {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+#meldung {
+  min-height: 48px;
+  line-height: 1.5;
+}
+
+#ladestand {
+  margin-bottom: 8px;
+}
+
+#itemGewinn {
+  padding: 14px;
+  background: #fff3cd;
+  color: #17324d;
+  border: 2px solid #d5a52b;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#ladebalken {
+  height: 24px;
+  background: #e0e7ef;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#fuellung {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #e74736 0%, #f39b32 25%, #f3d847 50%, #8acb46 75%, #25a95b 100%);
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.3s;
+}
+
+#konfetti {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.konfettistueck {
+  position: absolute;
+  top: -24px;
+  width: 10px;
+  height: 16px;
+  animation: regnen 3s linear forwards;
+}
+
+@keyframes regnen {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+#komplimente {
+  padding: 16px;
+  background: #fff3cd;
+  color: #17324d;
+  border-radius: 12px;
+  line-height: 1.8;
+}
+
+#sammlung {
+  margin-top: 28px;
+  border-top: 2px solid #e0e7ef;
+  padding-top: 16px;
+}
+
+#gegenstaende {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+#gegenstaende li {
+  background: #eaf3fa;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #fuellung {
+    transition: none;
+  }
+  .konfettistueck {
+    animation: none;
+    top: 12px;
+  }
+}
+
+#laborFeld {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid #8baf9a;
+  border-radius: 10px;
+  background: #214b43;
+}
+
+#laborFeld > summary, #hungerFeld > summary {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#laborFeld[open] > summary, #hungerFeld[open] > summary {
+  margin-bottom: 12px;
+}
+
+/* Auf der Startseite scheint das Laborbild durch die Bedienfelder. */
+    main:has(> #startmenue:not([hidden])) {
+  background: rgb(9 43 45 / 56%);
+  border-color: rgb(222 175 103 / 70%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+main:has(> #startmenue:not([hidden])) > :is(h1, p, form, details, #musikAuswahl) {
+  color: #fff6df;
+  text-shadow: 0 1px 3px #071f22, 0 0 6px #071f22;
+}
+
+main:has(> #startmenue:not([hidden])) :is(#laborFeld, #hungerFeld, #laborzustand:not(.beschaedigt)) {
+  background: rgb(9 43 45 / 42%);
+  color: #fff6df;
+  border: 1px solid rgb(222 175 103 / 60%);
+}
+
+main:has(> #startmenue:not([hidden])) > button,
+    main:has(> #startmenue:not([hidden])) :is(#startmenue, #musikAuswahl, #hungerFeld, #laborFeld) :is(button, select) {
+  background: rgb(23 74 72 / 70%);
+  color: #fff6df;
+  border: 1px solid #cba66e;
+}
+
+main:has(> #startmenue:not([hidden])) > button:disabled,
+    main:has(> #startmenue:not([hidden])) :is(#startmenue, #musikAuswahl, #hungerFeld, #laborFeld) button:disabled {
+  background: rgb(35 53 51 / 55%);
+  color: #d2d0bd;
+  border-color: #819088;
+}
+
+main:has(> #startmenue:not([hidden])) > button:not(:disabled):hover,
+    main:has(> #startmenue:not([hidden])) :is(#startmenue, #musikAuswahl, #hungerFeld, #laborFeld) button:not(:disabled):hover {
+  background: rgb(87 68 39 / 90%);
+}
+
+main:has(> #startmenue:not([hidden])) :is(#startmenue, #musikAuswahl, #hungerFeld) option {
+  background: #174a48;
+  color: #fff6df;
+}
+
+main:has(> #startmenue:not([hidden])) > button:focus-visible,
+    main:has(> #startmenue:not([hidden])) :is(#startmenue, #musikAuswahl, #hungerFeld, #laborFeld) :focus-visible {
+  outline: 3px solid #ffe0a0;
+  outline-offset: 3px;
+}
+
+main:has(> #startmenue:not([hidden])) #baustellenLabor {
+  background: rgb(79 51 25 / 70%);
+  color: #fff6df;
+  border: 1px solid #cba66e;
+}
+
+/* Beim Angriff bleibt der Monsterhügel durch die Konsole sichtbar. */
+    body.monsterangriff main {
+  background: rgb(9 43 45 / 56%);
+  border-color: rgb(222 175 103 / 70%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.monsterangriff main > :is(h1, p, #spiel, details, #musikAuswahl) {
+  color: #fff6df;
+  text-shadow: 0 1px 3px #071f22, 0 0 6px #071f22;
+}
+
+body.monsterangriff :is(#labor, #laborFeld, #hungerFeld, #laborzustand:not(.beschaedigt)) {
+  background: rgb(9 43 45 / 42%);
+  color: #fff6df;
+  border: 1px solid rgb(222 175 103 / 60%);
+}
+
+body.monsterangriff main > button,
+    body.monsterangriff :is(#spiel, #musikAuswahl, #hungerFeld, #laborFeld) :is(button, select, input) {
+  background: rgb(23 74 72 / 70%);
+  color: #fff6df;
+  border: 1px solid #cba66e;
+}
+
+body.monsterangriff main > button:disabled,
+    body.monsterangriff :is(#spiel, #musikAuswahl, #hungerFeld, #laborFeld) button:disabled {
+  background: rgb(35 53 51 / 55%);
+  color: #d2d0bd;
+  border-color: #819088;
+}
+
+body.monsterangriff main > button:not(:disabled):hover,
+    body.monsterangriff :is(#spiel, #musikAuswahl, #hungerFeld, #laborFeld) button:not(:disabled):hover {
+  background: rgb(87 68 39 / 90%);
+}
+
+body.monsterangriff :is(#musikAuswahl, #hungerFeld) option {
+  background: #174a48;
+  color: #fff6df;
+}
+
+body.monsterangriff main > button:focus-visible,
+    body.monsterangriff :is(#spiel, #musikAuswahl, #hungerFeld, #laborFeld) :focus-visible {
+  outline: 3px solid #ffe0a0;
+  outline-offset: 3px;
+}
+
+body.monsterangriff :is(#baustellenLabor, #itemGewinn, #komplimente) {
+  background: rgb(79 51 25 / 70%);
+  color: #fff6df;
+  border: 1px solid #cba66e;
+}
+
+body.monsterangriff #laborzustand.beschaedigt {
+  background: rgb(100 29 22 / 80%);
+  color: #fff1dd;
+  border-color: #ffad82;
+}
+
+body.monsterangriff #ladebalken {
+  background: rgb(9 43 45 / 55%);
+  border: 1px solid #cba66e;
+}
+
+#janoschTausch {
+  box-sizing: border-box;
+  width: min(560px, 94vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 24px;
+  border: 2px solid #cba66e;
+  border-radius: 16px;
+  background: rgb(9 43 45 / 94%);
+  color: #fff6df;
+}
+
+#janoschTausch::backdrop {
+  background: rgb(8 32 36 / 55%);
+}
+
+#janoschTausch select {
+  margin-bottom: 18px;
+  background: #174a48;
+  color: #fff6df;
+  border-color: #cba66e;
+}
+
+#janoschTausch button {
+  border: 1px solid #cba66e;
+  background: #174a48;
+}
+
+#janoschTausch button:disabled {
+  background: #354440;
+  color: #c2c9be;
+}
+
+#janoschTausch :focus-visible {
+  outline: 3px solid #ffe0a0;
+  outline-offset: 3px;
+}
+
+/* Janosch sitzt rechts neben der Soundtrack-Auswahl. */
+    #musikAuswahl {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr) 88px;
+}
+
+#musikAuswahl #soundtrack {
+  width: 100%;
+  min-width: 0;
+}
+
+#musikAuswahl #janoschOeffnen {
+  width: 88px;
+  height: 88px;
+  padding: 0;
+  margin: 0;
+  border: 2px solid #cba66e;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #174a48;
+  box-shadow: 0 3px 12px #071f2266;
+}
+
+#janoschOeffnen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#musikAuswahl #janoschOeffnen:hover {
+  border-color: #ffe0a0;
+  box-shadow: 0 0 12px #ffe0a077;
+}
+
+#musikAuswahl #janoschOeffnen:focus-visible {
+  outline: 3px solid #ffe0a0;
+  outline-offset: 3px;
+}
+
+@media (max-width: 620px) {
+  #musikAuswahl {
+    grid-template-columns: minmax(0, 1fr) 80px;
+    gap: 8px;
+  }
+  #musikAuswahl #musikKnopf {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+  #musikAuswahl label {
+    grid-column: 1;
+  }
+  #musikAuswahl #soundtrack {
+    grid-column: 1;
+  }
+  #musikAuswahl #janoschOeffnen {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+#kartSpiel {
+  box-sizing: border-box;
+  width: min(900px, 94vw);
+  max-height: 94vh;
+  overflow: auto;
+  padding: 24px;
+  border: 2px solid #cba66e;
+  border-radius: 18px;
+  background: #123e46;
+  color: #fff6df;
+}
+
+#kartSpiel::backdrop {
+  background: #071e30cc;
+}
+
+#kartBahn {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  background: #79a94e url('gwoerk-kart-hintergrund.png') center / 100% 100% no-repeat;
+}
+
+#kartAufgabe {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: bold;
+}
+
+#kartZeit {
+  color: #ffe0a0;
+  font-weight: bold;
+}
+
+#kartAntwort {
+  max-width: 280px;
+}
+
+#kartSpiel button {
+  border: 1px solid #cba66e;
+  background: #28625b;
+}
+
+#kartSpiel :focus-visible {
+  outline: 3px solid #ffe0a0;
+  outline-offset: 3px;
+}
+
+#chemieLabor {
+  box-sizing: border-box;
+  width: min(1000px, 96vw);
+  max-height: 94vh;
+  overflow: auto;
+  padding: 24px;
+  background: linear-gradient(rgb(8 32 36 / 45%), rgb(8 32 36 / 55%)), url('chemielabor-hintergrund.png') center / cover no-repeat;
+  color: #fff6df;
+  border: 2px solid #cba66e;
+  border-radius: 18px;
+}
+
+#chemieLabor > p, #chemieLabor > h2 {
+  text-shadow: 0 1px 3px #071f22, 0 0 6px #071f22;
+}
+
+#chemieLabor > details {
+  padding: 12px;
+  margin-top: 16px;
+  border-radius: 12px;
+  background: rgb(9 43 45 / 85%);
+}
+
+#chemieLabor .chemiePlatz {
+  background: rgb(9 43 45 / 76%);
+}
+
+#chemieLabor .chemieSchale {
+  background: rgb(19 58 66 / 65%);
+}
+
+#chemieLabor::backdrop {
+  background: #071e30cc;
+}
+
+#chemieLabor a {
+  color: #a6e7fa;
+}
+
+#chemiePlaetze {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.chemiePlatz {
+  flex: 1 1 320px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #cba66e;
+  border-radius: 12px;
+  background: #1d5155;
+}
+
+.chemiePlatz select {
+  font-size: 16px;
+}
+
+.chemiePlatz input[type=number] {
+  max-width: 180px;
+  font-size: 20px;
+}
+
+.chemiePlatz button {
+  font-size: 16px;
+  padding: 10px;
+  margin-right: 8px;
+}
+
+.chemieSchale {
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  border-bottom: 8px solid #a4d1ce;
+  border-radius: 0 0 24px 24px;
+  margin: 14px 0;
+  background: #133a42;
+}
+
+.chemieProbe {
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 75px;
+  background: #b5c5d0;
+  color: #15252b;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.chemieProbe.fluessig {
+  width: 85%;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.chemieProbe.schmelzend {
+  width: 65%;
+  height: 45px;
+  border-radius: 14px 14px 45% 45%;
+}
+
+.chemieProbe.rostig {
+  background: #c77a46 !important;
+}
+
+.chemieProbe.unbekannt {
+  background: transparent !important;
+  color: #fff6df;
+  border: 2px dashed #8faeac;
+}
+
+#deutschSatz {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: bold;
+  padding: 14px;
+  border: 1px solid #cba66e;
+  border-radius: 12px;
+  background: #204e54;
+}
+
+#deutschAntworten {
+  line-height: 1.6;
+}
+
+.antwortFreude {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.freudeSmiley, .freudeWort {
+  position: absolute;
+  animation: freudeSchweben 2.5s ease-out both;
+}
+
+.freudeSmiley {
+  width: var(--groesse);
+  height: var(--groesse);
+  filter: drop-shadow(0 2px 3px #17324d44);
+}
+
+.freudeSmiley svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.freudeWort {
+  padding: 6px 12px;
+  border: 2px solid currentColor;
+  border-radius: 16px 11px 18px 9px;
+  background: #fff6df;
+  font-size: clamp(17px, 2.5vw, 27px);
+  font-weight: bold;
+  text-shadow: none;
+}
+
+@keyframes freudeSchweben {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotate(var(--drehung));
+  }
+  15%, 65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-65px) rotate(var(--drehung));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .freudeSmiley, .freudeWort {
+    animation: none;
+  }
+}
+
+.tierBegleiter[hidden] {
+  display: none;
+}
+
+.minionBauSzene {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 125px;
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px dashed #e7b75e;
+  border-radius: 12px;
+  background: rgb(12 49 52 / 85%);
+  color: #fff6df;
+  pointer-events: none;
+}
+
+.minionBauFigur {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 100px;
+}
+
+.minionBauFigur .minionBild {
+  font-size: 78px;
+  animation: minionWerkeln .4s ease-in-out infinite alternate;
+}
+
+.minionWerkzeug {
+  position: absolute;
+  right: -8px;
+  top: 12px;
+  font-size: 38px;
+  opacity: 0;
+  transform-origin: bottom left;
+}
+
+.minionHammer {
+  animation: minionHammern .3s ease-in-out 7, minionWerkzeugSicht 2s linear;
+}
+
+.minionSaege {
+  animation: minionSaegen .25s ease-in-out 8 2s, minionWerkzeugSicht 2s linear 2s;
+}
+
+.minionPinsel {
+  animation: minionMalen .4s ease-in-out 5 4s, minionWerkzeugSicht 2s linear 4s;
+}
+
+.minionBauText {
+  display: block;
+}
+
+.minionFarbstrich {
+  display: block;
+  margin-top: 12px;
+  width: 0;
+  height: 12px;
+  border-radius: 5px;
+  background: #54d9ba;
+  animation: minionFarbe 2s ease-out 4s forwards;
+}
+
+@keyframes minionWerkeln {
+  to {
+    transform: rotate(-5deg) translateY(-2px);
+  }
+}
+
+@keyframes minionWerkzeugSicht {
+  0%, 99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes minionHammern {
+  50% {
+    transform: rotate(-55deg);
+  }
+}
+
+@keyframes minionSaegen {
+  50% {
+    transform: translateX(-15px);
+  }
+}
+
+@keyframes minionMalen {
+  50% {
+    transform: translateY(22px) rotate(-20deg);
+  }
+}
+
+@keyframes minionFarbe {
+  to {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .minionBauFigur .minionBild, .minionWerkzeug, .minionFarbstrich {
+    animation: none;
+  }
+  .minionHammer {
+    opacity: 1;
+  }
+  .minionFarbstrich {
+    width: 100%;
+  }
+}
+
+#kartAntworten {
+  display: flex;
+  gap: 12px;
+}
+
+#kartAntworten button {
+  flex: 1;
+  margin-top: 0;
+  font-size: clamp(22px, 4vw, 32px);
+  padding: 12px 6px;
+}
+
+#kartLenkBereich {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+#kartLenkrad {
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+#kartLenkrad svg {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#kartLenkBereich p {
+  font-size: 14px;
+}
+
+#zusatzSpiele {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid #cba66e;
+  border-radius: 12px;
+  background: rgb(9 43 45 / 42%);
+  color: #fff6df;
+}
+
+#zusatzSpiele > summary {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#zusatzSpiele > button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: rgb(23 74 72 / 70%);
+  color: #fff6df;
+  border: 1px solid #cba66e;
+}
+
+#zusatzSpiele > button:disabled {
+  background: rgb(35 53 51 / 55%);
+  color: #d2d0bd;
+  border-color: #819088;
+}
+
+#zusatzSpiele > button:not(:disabled):hover {
+  background: rgb(87 68 39 / 90%);
+}
+
+#zusatzSpiele > :focus-visible {
+  outline: 3px solid #ffe0a0;
+  outline-offset: 3px;
+}
+

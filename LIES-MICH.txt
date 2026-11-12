@@ -1,0 +1,156 @@
+ANDRIS MONSTERLABOR
+==================
+Ein lokales Lernspiel, entwickelt mit Andri am Zukunftstag.
+
+STARTEN
+1. Die ZIP-Datei vollständig entpacken.
+2. Den Ordner Andris-Monsterlabor öffnen.
+3. index.html doppelklicken. Ein aktueller Browser öffnet das Spiel.
+4. Schwierigkeit wählen und Spiel starten.
+5. Musik startet erst nach einem Klick auf «Musik an».
+
+Keine Installation, kein Server und keine Internetverbindung nötig.
+Alle Dateien im selben Ordner lassen. Nichts wurde im Internet veröffentlicht.
+
+DATEIEN ZUM WEITERBAUEN
+index.html   Sichtbare Felder, Knöpfe und Fenster.
+stil.css     Farben, Schriftgrössen, Hintergründe und Animationen.
+spiel.js     Gut kommentierter Spielcode: Rechnen, Items, Monster und Musik.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+haustiere.js Haustiere, Futter, Alter, Fähigkeiten und besondere Vogelfunde.
+*.png        Die beiden Hintergrundbilder.
+*-prompt.txt Die Beschreibungen für die generierten Bilder.
+
+SO FUNKTIONIERT DAS SPIEL
+- Sechs Stufen: Zukunftstag, Lehrling, Assistent, Doktor, Professor, Da Vinci.
+- Zukunftstag hat Plus/Minus bis 10. Da Vinci rechnet bis 1 Million.
+- Zukunftstag und Lehrling haben keine Monsterangriffe.
+- Ein normaler Spielbalken startet jede Runde bei 50 Prozent.
+  Richtig: +10; falsch: -10. Bei 100 gibt es sofort ein Item.
+- Ab Assistent wird nach fünf normalen Aufgaben ein Angriff angekündigt.
+  Nach 30 Sekunden Vorbereitungszeit beginnt der Angriff.
+  Stärke der Maschine und Schwäche des Monsters müssen zusammenpassen.
+- Gebaute Maschinen bleiben erhalten, brauchen aber nach jedem Einsatz Wartung.
+- Durchgebrochene Monster kosten 25 Laborpunkte. Baustellen reparieren das Labor
+  gegen Items. Bei 0 Laborpunkten kann man weiterrechnen und reparieren.
+- Sieben Zusatzlevels haben je drei Stufen. Drei richtige Antworten geben
+  einen Schlüssel. Falsche Antworten senken diesen Zusatzbalken nicht.
+- Schlüssel öffnen Tresore mit magischen Stiften oder Papier.
+- Ein Stift und ein Blatt Papier verwandeln eine Zeichnung in das ausgewählte
+  normale Item. Die Auswahl bestimmt das Item, nicht eine Bilderkennung.
+- Vier wählbare Soundtracks wechseln automatisch zwischen Rechnen, Werkstatt
+  und Angriff. Die Melodien werden direkt im Browser erzeugt.
+
+WICHTIG ZUM SPIELSTAND
+Der Spielstand lebt nur im geöffneten Browserfenster. Zurück zum Start behält
+Items, Schlüssel, Maschinen und Laborschäden. Neuladen oder Schliessen setzt
+alles zurück. Es gibt noch keine dauerhafte Speicherfunktion.
+
+KLEINE ÄNDERUNGEN SELBST AUSPROBIEREN
+- In stil.css die Farben oder Abstände ändern.
+- In spiel.js in musikStuecke das tempo ändern (kleiner = schneller).
+- In spiel.js die Namen der Maschinen ändern.
+- Die Reihenfolge der items-Liste nicht ändern: Baupläne verwenden ihre Nummern.
+- anzahlAufgaben steht auf 5; daran hängen Rundenlänge und Monsterangriff.
+
+Datei speichern und danach den Browser neu laden (Mac: Cmd + R).
+Auch KI kann Fehler machen: Änderungen ausprobieren und Ergebnisse überprüfen.
+
+HUNGER UND KÜCHE
+Jede gültige Antwort kostet 5 Sättigung. Richtige normale Antworten,
+abgeschlossene Runden und Zusatzlevels geben zusätzlich eine zufällige Zutat.
+Jede Stufe schaltet eine neue Zutat frei; tiefere Zutaten bleiben möglich:
+Zukunftstag: Apfel (+25), Lehrling: Brot (+30), Assistent: Käse (+35),
+Doktor: Kartoffel (+40), Professor: Fisch (+45), Da Vinci: Reis (+50).
+Startvorrat: ein Apfel. Wähle dein Essen im Auswahlfeld oder in der Küche.
+Die Küche kombiniert jeweils eine Portion der verlangten Zutaten:
+Apfel + Brot -> Apfelbrot (+70)
+Brot + Käse -> Käsetoast (+85)
+Käse + Kartoffel -> Käsekartoffeln (+95)
+Kartoffel + Fisch -> Fisch mit Kartoffeln (+100)
+Fisch + Reis -> Fisch-Reis-Bowl (+100)
+Das Gericht liegt nach dem Kochen im Vorrat und kann später gegessen werden.
+Sättigung bleibt zwischen 0 und 100. Bei 0 darfst du weiterrechnen.
+
+ZEITABHÄNGIGER HUNGER
+Zusätzlich sinkt die Sättigung alle drei Minuten um 6 Punkte, solange das
+Spiel geöffnet ist. Der Zähler startet beim Neuladen neu.
+
+STATUSFELDER
+Klicke auf Laborzustand oder Sättigung, um die Leisten und Knöpfe aufzuklappen.
+Ein weiterer Klick klappt das Feld wieder zu. Beide starten geschlossen.
+
+HAUSTIERE
+Im Haustierzimmer kannst du zuerst ein Tier aufnehmen. Sobald ein Tier nach
+30 Minuten erwachsen wird, werden dauerhaft zwei Plätze für diese Sitzung frei.
+Tiere helfen schon als Jungtiere. Alle Tiere fressen jedes Essen. Lieblingsessen füllt die Hungerleiste ganz, anderes Essen gibt höchstens 70 Sättigung.
+Jede Minute verlieren Tiere 2 Sättigung. Bei 0 sterben sie; spätestens mit einem
+Alter von 6 Stunden. Die Zeit läuft auch in anderen Spielbereichen weiter.
+Neuladen setzt auch die Tiere und ihre Zeiten zurück.
+
+Katze und Hund: Rechentipps im normalen Spiel.
+Schlange: alle 10 Minuten eine zufällige freigeschaltete Essenszutat.
+Elefant: Monster-Treffer richten nur 15 statt 25 Schaden an.
+Huhn: zeigt 30 Sekunden vor dem Angriff «Bok bok!», «Iiii!» oder «Scharr scharr!».
+Kaninchen: eine normale oder Zusatzaufgabe lösen, danach 15 Minuten Pause.
+Minion: eine Baustelle ohne Items reparieren, danach 15 Minuten Pause.
+Kaninchen und Minion können ihre erste Hilfe sofort geben.
+Wellensittich: alle 10 Minuten ein normales oder besonderes Item.
+Besondere Funde sind Öl, Körner, Ring, Farbe, Haarspange, Melone und Laptop.
+Einen besonderen Fund kannst du an der Werkbank in zwei normale Bauteile deiner
+Wahl verwandeln. Diese Bauteile lassen sich wie gewohnt in Maschinen verbauen.
+Tiere sitzen auf der oberen Aussenkante des Spielfelds und schauen zum Cursor.
+Rechtsklick (oder normaler Klick) auf ein Tier öffnet Streicheln und Spielen.
+Mit Enter oder Leertaste lässt sich das Menü ebenfalls öffnen, Escape schliesst es.
+Lieblingsessen ist eine Fantasie-Spielregel und keine Anleitung für echte Tiere.

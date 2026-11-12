@@ -1,0 +1,7 @@
+Erstellt mit integrierter Bildgenerierung (imagegen).
+
+MONSTERSCHLEUDER
+Create a very simple wide landscape 2D cartoon game background, aspect ratio 2:1. Flat pale blue sky, two small soft white clouds near the top corners, one low gently curved light-green hill along the bottom quarter and a thin darker green grass strip at the very bottom. Extremely minimal, large empty playing area, only five flat colours, no texture, no buildings, no trees, no characters, no text, no interface. For a slingshot browser game. Opaque background.
+
+GWÖRK KART
+Create a very simple wide 2D top-down cartoon racing game background, aspect ratio about 3:1. A flat muted green meadow seen directly from above, with a few tiny darker grass tufts only along the outermost top and bottom edges. Centre completely clear green, no road, no cars, no characters, no text, no interface, no horizon. Minimal flat colours, no detail or texture in the centre. The game will draw its own horizontal racing lanes over this background. Opaque background.

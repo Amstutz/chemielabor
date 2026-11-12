@@ -1,0 +1,68 @@
+CHEMIELABOR – ERSTE SPIELBARE ETAPPE
+Stand: 12.11.2026
+
+Umbau bei 100 % Laborzustand, ausserhalb eines angekündigten oder aktiven Angriffs.
+Baukosten: genau 10 normale Items. Die konkreten Items werden vor dem Umbau angezeigt. Ab Assistent danach zwei Monster pro Welle statt einem.
+Zukunftstag und Lehrling bleiben ohne Angriffe. Umbau und Fortschritt gelten
+wie der übrige Spielstand nur bis zum Neuladen.
+
+118 Elemente als Katalogkarten (Ordnungszahl, Symbol, deutscher Name).
+Heizmodell für sechs reine Metalle bei normalem Luftdruck, ohne Luftreaktionen:
+Aluminium 660.323 °C, Eisen 1538 °C, Kupfer 1084.62 °C,
+Silber 961.78 °C, Gold 1064.18 °C, Platin 1768.2 °C.
+Die eingegebene Temperatur gilt für die Probe, nicht für einen Ofen.
+Genau am Schmelzpunkt: feste und flüssige Anteile möglich.
+Über dem Schmelzpunkt: flüssig nach ausreichender Energiezufuhr.
+Keine Berechnung von Wärmekapazität, Schmelzwärme oder Heizdauer.
+Bereich 20 bis 2000 °C liegt für diese sechs Metalle unter dem Siedepunkt.
+
+Wasserversuch: Eine neue Eisenprobe bei 20 °C wird mit Wasser und Luft in
+Kontakt gebracht. Ein schematischer Zeitraffer zeigt Rostbildung. Er sagt
+keine bestimmte Dauer oder Rostmenge voraus. Die anderen Wasserversuche
+sind nicht implementiert; dafür sind die Knöpfe deaktiviert.
+Zwei getrennte Schalen erlauben den Vergleich, kein Mischen und keinen
+Stoffaustausch. Kein universeller Reaktionssimulator, keine Simulation
+radioaktiven Zerfalls oder von Gemischen. Unbekannt bedeutet nicht reaktionsträge.
+Diese Etappe erfüllt noch nicht den Wunsch, alle Elemente naturgetreu reagieren
+zu lassen. Weitere geprüfte Modelle können einzeln ergänzt werden.
+
+QUELLEN
+Elementliste: https://iupac.org/what-we-do/periodic-table-of-elements/
+https://periodic-table.rsc.org/element/13/aluminium
+https://periodic-table.rsc.org/element/26/iron
+https://periodic-table.rsc.org/element/29/copper
+https://periodic-table.rsc.org/element/47/silver
+https://periodic-table.rsc.org/element/79/gold
+https://periodic-table.rsc.org/element/78/platinum
+Eisen, Wasser, Sauerstoff und Rost:
+https://edu.rsc.org/experiments/how-much-oxygen-is-used-when-iron-wool-rusts/453.article
+
+Das Spiel benötigt kein Internet. Quellenlinks öffnen nur auf eigenen Klick
+externe Webseiten. Experimente sind ausschliesslich virtuell.
+
+ELEMENTVORRAT UND JANOSCH
+Jedes der 118 Elemente startet mit sechs Spielportionen. Das Öffnen und
+Anschauen des Katalogs verbraucht nichts. Eine neue trockene Probe oder eine
+neue Eisen-Wasser-Probe kostet eine Portion. Erhitzen derselben Probe kostet
+keine weiteren Portionen. Beide Schalen teilen sich den Vorrat. Beim Wechseln
+des Elements wird die aktive Probe verworfen; sie wird nicht zurückgegeben.
+Nicht implementierte Experimente verbrauchen keine Portionen.
+Janosch zählt die fehlenden Portionen über alle Elemente zusammen:
+1–5 fehlen: 2 Essen.
+6–8 fehlen: 1 Essen, 1 normales Item, 1 Gwörk-Kart-Pokal.
+Ab 9 fehlen: 2 Essen, 2 normale Items, 2 Gwörk-Kart-Pokale.
+Genau 5 gehört zur ersten Preisstufe. Alle Vorräte werden auf sechs aufgefüllt.
+Das ausgewählte Essen wird bevorzugt bezahlt; nötigenfalls ergänzt eine andere
+Essensart die Zahlung. Konkrete Items und Essen werden vor dem Bezahlen angezeigt.
+Ist alles voll oder fehlt ein Teil der Bezahlung, wird nichts abgezogen. Vor dem Laborumbau
+ist die Nachfüllfunktion gesperrt. Die Portionen sind Spielwerte, keine
+Angaben zu realen Stoffmengen oder zur Lagerbarkeit instabiler Elemente.
+
+HERSTELLUNG ALS SPIELMECHANIK
+Eine entnommene, trockene und vollständig flüssige Probe kann einmal zu einem
+Item verarbeitet werden. Eisen: Metallplatte, Zahnrad oder Schraube.
+Aluminium: Metallplatte. Kupfer plus 1 vorhandenes Plastik: Kabel.
+Der Herstellungsknopf fasst Formen, Abkühlen und bei Kabeln Isolieren zusammen;
+dies ist keine vollständige Fertigungs- oder Chemiesimulation. Die entnommene
+Portion wird dabei zum Item, nicht nochmals aus dem Elementvorrat abgezogen.
+Nasse, rostige oder bereits verarbeitete Proben sind dafür nicht geeignet.

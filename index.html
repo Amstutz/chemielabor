@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      Andris Monsterlabor
+    </title>
+    <link rel="stylesheet" href="stil.css">
+  </head>
+  <body>
+    <div id="konfetti" aria-hidden="true">
+    </div>
+    <div id="hintergrund" hidden aria-hidden="true">
+      <span lang="en">
+        Why?
+      </span>
+      <span lang="fr">
+        Pourquoi ?
+      </span>
+      <span lang="it">
+        Perché?
+      </span>
+      <span lang="en">
+        I'm disappointed!
+      </span>
+    </div>
+    <main>
+      <div id="tierPromenade" hidden>
+      </div>
+      <h1>
+        Andris Monsterlabor
+      </h1>
+      <p id="monsterZaehler" role="status">
+        👾 Besiegte Monster: 0
+      </p>
+      <div id="musikAuswahl">
+        <button id="musikKnopf" type="button" aria-pressed="false">
+          ♫ Musik an
+        </button>
+        <label for="soundtrack">
+          Soundtrack
+        </label>
+        <select id="soundtrack">
+          <option value="original">
+            Original
+          </option>
+          <option value="zweite">
+            Zweite Option
+          </option>
+          <option value="dritte">
+            Dritte Option
+          </option>
+          <option value="vierte">
+            Vierte Option
+          </option>
+        </select>
+        <button id="janoschOeffnen" type="button" aria-haspopup="dialog" aria-label="Janosch Tausch öffnen" title="Janosch Tausch">
+          <img src="janosch.png" alt="" width="80" height="80">
+        </button>
+      </div>
+      <button id="haustiereOeffnen" type="button" aria-haspopup="dialog">
+        🐾 Haustierzimmer
+      </button>
+      <p id="tierMeldung" role="status">
+      </p>
+      <details id="laborFeld">
+        <summary>
+          🏠 Laborzustand
+        </summary>
+        <p id="laborzustand" role="status">
+          🏠 Laborzustand: 100 / 100
+        </p>
+        <progress id="laborLeiste" value="100" max="100" aria-label="Laborzustand">
+        </progress>
+        <section id="baustellenLabor" class="baustellen" aria-label="Baustellen am Labor" hidden>
+        </section>
+      </details>
+      <button id="kuecheOeffnen" type="button" aria-haspopup="dialog">
+        🍳 Küche und Essensvorrat
+      </button>
+      <p>
+        Hole Items und baue Maschinen. Monster greifen ab Assistent an!
+      </p>
+      <form id="startmenue">
+        <label for="schwierigkeit">
+          Wähle deine Schwierigkeit
+        </label>
+        <p id="stufenFortschritt" role="status">
+        </p>
+        <select id="schwierigkeit">
+          <option value="10">
+            🌱 Zukunftstag – Plus und Minus von 1 bis 10
+          </option>
+          <option value="15">
+            🔧 Lehrling – Zahlen von 1 bis 15
+          </option>
+          <option value="20">
+            🚀 Assistent – Zahlen von 1 bis 20
+          </option>
+          <option value="50">
+            🧪 Doktor – Zahlen von 1 bis 50
+          </option>
+          <option value="100">
+            🎓 Professor – Zahlen von 1 bis 100
+          </option>
+          <option value="1000000">
+            🎨 Da Vinci – knifflige Rechnungen bis 1 Million
+          </option>
+        </select>
+        <button type="submit">
+          Spiel starten
+        </button>
+      </form>
+      <div id="spiel" hidden>
+        <p id="stufeninfo">
+        </p>
+        <section id="labor" aria-label="Monster vor dem Labor">
+          <span id="monster" role="img" aria-label="Monster">
+            👾
+          </span>
+          <p id="monsterinfo">
+          </p>
+          <p id="laborstatus" role="status">
+          </p>
+        </section>
+        <p id="stand">
+        </p>
+        <p id="aufgabe">
+        </p>
+        <button id="tierTipp" type="button" hidden>
+          🐾 Rechentipp
+        </button>
+        <form id="formular">
+          <label for="antwort">
+            Deine Antwort
+          </label>
+          <input id="antwort" type="number" min="0" max="100" step="1" required autocomplete="off">
+          <button id="pruefen" type="submit">
+            Prüfen
+          </button>
+        </form>
+        <small>
+          Bis du eine Antwort einreichst: alle 5 Sekunden −5 Prozentpunkte Ladung. Tippen und Klicken stoppen die Zeit nicht.
+        </small>
+        <p id="ladestand">
+          Ladung: 50 %
+        </p>
+        <small>
+          Bei leerem Balken verlierst du bis zu zwei Items aus deinem Vorrat.
+        </small>
+        <p id="itemVerlust" role="status" hidden>
+        </p>
+        <div id="ladebalken" role="progressbar" aria-label="Ladung" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <div id="fuellung">
+          </div>
+        </div>
+        <p id="itemGewinn" role="status" hidden>
+        </p>
+        <p id="komplimente" role="status" hidden>
+          <strong>
+            Balken voll – gut gemacht!
+          </strong>
+          <br>
+          <span lang="en">
+            Well done!
+          </span>
+          ·
+          <span lang="fr">
+            Bravo !
+          </span>
+          ·
+          <span lang="it">
+            Bravissimo!
+          </span>
+          ·
+          <span lang="th">
+            เก่งมาก!
+          </span>
+        </p>
+        <p id="meldung" role="status">
+        </p>
+        <button id="weiter" hidden>
+          Nächste Aufgabe
+        </button>
+        <button id="zumStart" type="button">
+          Zurück zum Start
+        </button>
+      </div>
+      <dialog id="janoschTausch" aria-labelledby="janoschTitel">
+        <h2 id="janoschTitel">
+          🔄 Janosch Tausch
+        </h2>
+        <p>
+          Gib Janosch ein Essen und erhalte ein anderes. Es gilt: 1 gegen 1.
+        </p>
+        <form id="tauschFormular">
+          <label for="tauschVon">
+            Das gibst du ab
+          </label>
+          <select id="tauschVon">
+          </select>
+          <label for="tauschNach">
+            Das möchtest du haben
+          </label>
+          <select id="tauschNach">
+          </select>
+          <p id="tauschVorschau">
+          </p>
+          <button id="tauschKnopf" type="submit">
+            Essen tauschen
+          </button>
+        </form>
+        <p id="tauschMeldung" role="status">
+        </p>
+        <section aria-labelledby="elementNachschubTitel">
+          <h3 id="elementNachschubTitel">
+            ⚗️ Element-Nachschub
+          </h3>
+          <p>
+            Nachfüllpreis nach fehlenden Portionen: 1–5 → 2 Essen; 6–8 → 1 Essen + 1 Item + 1 Pokal; ab 9 → 2 Essen + 2 Items + 2 Pokale. Alle Vorräte werden auf 6 gefüllt. Das oben gewählte Essen wird zuerst verwendet; falls nötig kommt ein anderes dazu. Die genaue Bezahlung steht unten.
+          </p>
+          <p id="elementNachschubInfo">
+          </p>
+          <button id="elementeAuffuellen" type="button" disabled>
+            Alle Elemente auf 6 auffüllen
+          </button>
+          <p id="elementNachschubMeldung" role="status">
+          </p>
+        </section>
+        <button id="janoschSchliessen" type="button">
+          Zurück zum Labor
+        </button>
+      </dialog>
+      <button id="laborUmbauen" type="button">
+        🏗️ Labor umbauen
+      </button>
+      <p id="umbauHinweis">
+        Bei 100 % Laborzustand: Chemielabor öffnen. Danach kommen ab Assistent zwei Monster pro Angriff statt einem. Der Umbau kostet 10 normale Items, mit einem lebenden Minion nur 5.
+      </p>
+      <button id="chemieOeffnen" type="button" hidden>
+        ⚗️ Chemielabor öffnen
+      </button>
+      <dialog id="chemieLabor" aria-labelledby="chemieTitel">
+        <h2 id="chemieTitel">
+          ⚗️ Dein virtuelles Chemielabor
+        </h2>
+        <p>
+          Alle 118 Elemente zum Auswählen. Erhitzen ist für Aluminium, Eisen, Kupfer, Silber, Gold und Platin verfügbar.
+        </p>
+        <p>
+          Schmelzpunkt heisst: Bei dieser Temperatur beginnt ein reiner Stoff zu schmelzen. Wir betrachten die Probe bei normalem Luftdruck, ohne Reaktionen mit Luft.
+        </p>
+        <p>
+          Zwei getrennte Schalen zum Vergleichen. Nebeneinanderstellen bedeutet hier kein Mischen. Für nicht unterstützte Versuche wird keine Reaktion erfunden.
+        </p>
+        <p>
+          Startvorrat: 6 Portionen von jedem Element. Eine neue Probe kostet 1 Portion. Erhitzen derselben Probe kostet nichts zusätzlich. Beim Wechseln des Elements wird die alte Probe verworfen.
+        </p>
+        <p>
+          Nachschub bei Janosch: je nach fehlenden Portionen gegen Essen, Items und Pokale. Dort siehst du den genauen Preis.
+        </p>
+        <p>
+          Items herstellen: Schmelze Eisen oder Aluminium für Metallteile. Kupfer und 1 Plastik ergeben ein Kabel. Der Knopf übernimmt Formen, Abkühlen und bei Kabeln Isolieren als vereinfachte Spielaktion.
+        </p>
+        <div id="chemiePlaetze">
+        </div>
+        <details>
+          <summary>
+            Was bildet dieses Modell ab?
+          </summary>
+          <p>
+            Die Temperatur ist die Temperatur der Probe. Die Form zeigt den Zustand nach genügend Zeit zum Erwärmen; Erwärmungsdauer und Energiebedarf werden nicht berechnet. Genau am Schmelzpunkt können feste und flüssige Anteile nebeneinander bestehen.
+          </p>
+          <p>
+            Wasser und Luft: nur ein vereinfachter Rostversuch mit Eisen bei 20 °C. Die Zeitraffer-Ansicht zeigt keine bestimmte Reaktionsdauer. Reaktionen anderer Elemente, Gemische, Druckänderungen und radioaktiver Zerfall werden nicht simuliert. Besonders kurzlebige Elemente sind hier nur Auswahlkarten, keine haltbaren Proben.
+          </p>
+          <p>
+            Dies ist ein Bildschirmexperiment, keine Anleitung zum Erhitzen oder Mischen echter Stoffe.
+          </p>
+          <p>
+            Quellen:
+            <a href="https://periodic-table.rsc.org/" target="_blank" rel="noopener">
+              Royal Society of Chemistry: Stoffdaten
+            </a>
+            ·
+            <a href="https://edu.rsc.org/experiments/how-much-oxygen-is-used-when-iron-wool-rusts/453.article" target="_blank" rel="noopener">
+              RSC: Eisen und Rost
+            </a>
+            ·
+            <a href="https://iupac.org/what-we-do/periodic-table-of-elements/" target="_blank" rel="noopener">
+              IUPAC: Elemente
+            </a>
+          </p>
+        </details>
+        <button id="chemieSchliessen" type="button">
+          Zurück zum Labor
+        </button>
+      </dialog>
+      <button id="werkstattOeffnen" type="button" aria-haspopup="dialog">
+        🔧 Werkstatt öffnen
+      </button>
+      <details id="zusatzSpiele">
+        <summary>
+          🎮 Zusatzspiele
+        </summary>
+        <button id="minispielOeffnen" type="button" aria-haspopup="dialog" disabled>
+          🎯 Monsterschleuder – schliesse zuerst ein normales Level ab
+        </button>
+        <button id="deutschSchleuderOeffnen" type="button" aria-haspopup="dialog">
+          📖 Deutsch-Monsterschleuder spielen
+        </button>
+        <button id="kartOeffnen" type="button" aria-haspopup="dialog">
+          🏎️ Gwörk Kart
+        </button>
+      </details>
+      <dialog id="kartSpiel" aria-labelledby="kartTitel">
+        <h2 id="kartTitel">
+          🏎️ Gwörk Kart
+        </h2>
+        <p>
+          Du fährst das gelbe Auto. Richtig in höchstens 4 Sekunden: dein Auto wird schneller! Zu spät oder falsch: Die Monster werden schneller. Gewinne einen Pokal!
+        </p>
+        <p id="kartStufe">
+        </p>
+        <canvas id="kartBahn" width="840" height="300" aria-label="Kurvige Rennstrecke: dein gelbes Auto und zwei Monsterautos. Der Rennstand steht auch unter dem Bild.">
+        </canvas>
+        <p id="kartRennstand">
+        </p>
+        <p id="kartZeit">
+          Bereit fürs Rennen?
+        </p>
+        <div id="kartFormular" hidden>
+          <p id="kartAufgabe">
+          </p>
+          <div id="kartAntworten" role="group" aria-labelledby="kartAufgabe">
+          </div>
+        </div>
+        <div id="kartLenkBereich">
+          <div id="kartLenkrad" role="slider" tabindex="0" aria-label="Lenkrad: Pfeil links oder rechts halten" aria-valuemin="-100" aria-valuemax="100" aria-valuenow="0">
+            <svg viewBox="0 0 100 100" aria-hidden="true">
+              <circle cx="50" cy="50" r="40" fill="#193b42" stroke="#e1b576" stroke-width="9"/>
+              </circle>
+              <path d="M12 43L50 55L88 43M50 55V88" fill="none" stroke="#d0dce0" stroke-width="8"/>
+              </path>
+              <circle cx="50" cy="53" r="12" fill="#ffd15e"/>
+              </circle>
+            </svg>
+          </div>
+          <p>
+            Lenke mit Maus oder Finger am Lenkrad oder halte ← / →. Loslassen: geradeaus. Antwort anklicken oder Taste 1, 2 oder 3 drücken. Auf der Wiese bremst dein Auto.
+          </p>
+        </div>
+        <p id="kartLenkHinweis">
+        </p>
+        <p id="kartMeldung" role="status">
+        </p>
+        <button id="kartStart" type="button">
+          Rennen starten
+        </button>
+        <button id="kartSchliessen" type="button">
+          Zurück zum Labor
+        </button>
+      </dialog>
+      <dialog id="monsterMinispiel" aria-labelledby="minispielTitel">
+        <h2 id="minispielTitel">
+          🎯 Monsterschleuder
+        </h2>
+        <p id="minispielAnleitung">
+          Ziehe den gelben Ball nach links unten und lass los. Die Punkte zeigen die Flugbahn. Braune Holzteile und blaue Glasscheiben zerbrechen bei einem Treffer. Triff alle Monster!
+        </p>
+        <label for="schleuderModus">
+          Spielmodus
+        </label>
+        <select id="schleuderModus">
+          <option id="monsterburgenModus" value="normal" disabled>
+            Monsterburgen – zuerst eine Rechenrunde
+          </option>
+          <option value="deutsch">
+            Deutsch – finde den Fehler
+          </option>
+        </select>
+        <p id="deutschSatz" hidden>
+        </p>
+        <p id="deutschAntworten" hidden>
+        </p>
+        <p id="deutschPreisHinweis" hidden>
+          Ein Satz, ein Fehler: Triff das Monster mit der richtigen Korrektur. Belohnung: ein Sammelitem. Bier, Wurst, Friedrich-Schmerz-Figur oder Kartoffel; sehr selten ein Schweizer Kreuz (1 %). Das Bier ist hier nur ein Bauteil, kein Essen.
+        </p>
+        <label for="schleuderLevel">
+          Schauplatz
+        </label>
+        <select id="schleuderLevel">
+          <option value="0">
+            1 · Monster-Aussenposten
+          </option>
+          <option value="1" disabled>
+            2 · Monsterturm 🔒
+          </option>
+          <option value="2" disabled>
+            3 · Monsterstadt 🔒
+          </option>
+          <option value="3" disabled>
+            4 · Monsterburg 🔒
+          </option>
+          <option value="4" disabled>
+            5 · Monsterwald 🔒
+          </option>
+        </select>
+        <canvas id="schleuderFeld" width="840" height="420" aria-label="Schleuder links, lila Monster rechts. Du kannst auch mit den Reglern darunter zielen.">
+        </canvas>
+        <label>
+          Winkel
+          <input id="schleuderWinkel" type="range" min="10" max="75" value="35">
+        </label>
+        <label>
+          Kraft
+          <input id="schleuderKraft" type="range" min="20" max="100" value="75">
+        </label>
+        <button id="schleuderSchuss" type="button">
+          Schuss!
+        </button>
+        <p id="schleuderStatus" role="status">
+        </p>
+        <button id="miniWeiterRechnen" type="button" hidden>
+          🧮 Weiterrechnen und nächstes Level öffnen
+        </button>
+        <button id="schleuderNeustart" type="button">
+          Noch einmal
+        </button>
+        <button id="minispielSchliessen" type="button">
+          Zurück zum Labor
+        </button>
+      </dialog>
+      <button id="zusatzOeffnen" type="button" aria-haspopup="dialog" disabled>
+        ⭐ Zusatzlevels – ab Assistent
+      </button>
+      <dialog id="zusatz" aria-labelledby="zusatzTitel">
+        <h2 id="zusatzTitel">
+          Zusatzlevels
+        </h2>
+        <button id="bonusHaustiere" type="button">
+          🐾 Haustierhilfe
+        </button>
+        <p>
+          Fülle den Balken mit drei richtigen Antworten und gewinne einen Schlüssel!
+        </p>
+        <p id="schluesselStand">
+          🔑 Schlüssel: 0
+        </p>
+        <label for="bonusStufe">
+          Wähle eine Stufe, dann ein Level
+        </label>
+        <select id="bonusStufe">
+          <option value="1">
+            Stufe 1 – leicht
+          </option>
+          <option value="2">
+            Stufe 2 – mittel
+          </option>
+          <option value="3">
+            Stufe 3 – schwer
+          </option>
+        </select>
+        <button id="bruecheStart" type="button">
+          Brüche addieren
+        </button>
+        <button id="quadrateStart" type="button">
+          Quadratzahlen
+        </button>
+        <button id="prozenteStart" type="button">
+          Prozente
+        </button>
+        <button id="gleichungenStart" type="button">
+          Gleichungen
+        </button>
+        <button id="umfangStart" type="button">
+          Umfang
+        </button>
+        <button id="einheitenStart" type="button">
+          Einheiten
+        </button>
+        <button id="quaderStart" type="button">
+          Quader-Volumen
+        </button>
+        <section id="bonusSpiel" hidden>
+          <p id="bonusHilfe">
+          </p>
+          <p id="bonusStand">
+          </p>
+          <progress id="bonusBalken" value="0" max="3" aria-label="Fortschritt zum Schlüssel">
+          </progress>
+          <p id="bonusAufgabe">
+          </p>
+          <form id="bonusFormular">
+            <label for="bonusAntwort">
+              Deine Antwort
+            </label>
+            <input id="bonusAntwort" type="text" required autocomplete="off">
+            <button id="bonusPruefen" type="submit">
+              Prüfen
+            </button>
+          </form>
+          <p id="bonusMeldung" role="status">
+          </p>
+          <button id="bonusWeiter" type="button" hidden>
+            Nächste Aufgabe
+          </button>
+          <details id="taschenrechner" hidden>
+            <summary>
+              🧮 Taschenrechner
+            </summary>
+            <form id="rechnerFormular">
+              <div id="rechnerFelder">
+                <label>
+                  Erste Zahl
+                  <input id="rechnerA" type="text" inputmode="decimal" required autocomplete="off">
+                </label>
+                <label>
+                  Rechenart
+                  <select id="rechnerArt">
+                    <option value="+">
+                      +
+                    </option>
+                    <option value="-">
+                      −
+                    </option>
+                    <option value="*">
+                      ×
+                    </option>
+                    <option value="/">
+                      ÷
+                    </option>
+                  </select>
+                </label>
+                <label>
+                  Zweite Zahl
+                  <input id="rechnerB" type="text" inputmode="decimal" required autocomplete="off">
+                </label>
+                <label>
+                  Rechenart
+                  <select id="rechnerArtC">
+                    <option value="+">
+                      +
+                    </option>
+                    <option value="-">
+                      −
+                    </option>
+                    <option value="*">
+                      ×
+                    </option>
+                    <option value="/">
+                      ÷
+                    </option>
+                  </select>
+                </label>
+                <label>
+                  Dritte Zahl
+                  <input id="rechnerC" type="text" inputmode="decimal" autocomplete="off">
+                </label>
+                <label>
+                  Rechenart
+                  <select id="rechnerArtD">
+                    <option value="+">
+                      +
+                    </option>
+                    <option value="-">
+                      −
+                    </option>
+                    <option value="*">
+                      ×
+                    </option>
+                    <option value="/">
+                      ÷
+                    </option>
+                  </select>
+                </label>
+                <label>
+                  Vierte Zahl
+                  <input id="rechnerD" type="text" inputmode="decimal" autocomplete="off">
+                </label>
+                <label>
+                  Rechenart
+                  <select id="rechnerArtE">
+                    <option value="+">
+                      +
+                    </option>
+                    <option value="-">
+                      −
+                    </option>
+                    <option value="*">
+                      ×
+                    </option>
+                    <option value="/">
+                      ÷
+                    </option>
+                  </select>
+                </label>
+                <label>
+                  Fünfte Zahl
+                  <input id="rechnerE" type="text" inputmode="decimal" autocomplete="off">
+                </label>
+              </div>
+              <p>
+                Zwei bis fünf Zahlen von vorne ausfüllen. Punkt vor Strich: 2 + 3 × 4 = 14.
+              </p>
+              <button type="submit">
+                Ausrechnen
+              </button>
+              <output id="rechnerErgebnis" aria-live="polite">
+              </output>
+              <button id="rechnerWeiter" type="button" disabled>
+                Mit Ergebnis weiterrechnen
+              </button>
+            </form>
+          </details>
+        </section>
+        <button id="zusatzSchliessen" type="button">
+          Zurück zum Labor
+        </button>
+      </dialog>
+      <dialog id="haustierZimmer" aria-labelledby="haustierTitel">
+        <h2 id="haustierTitel">
+          🐾 Dein Haustierzimmer
+        </h2>
+        <p>
+          Jungtiere helfen sofort. Nach 30 Minuten sind sie erwachsen und du bekommst einen zweiten Platz. Maximal zwei Tiere.
+        </p>
+        <p>
+          Tierhunger: −2 pro Minute. Ohne Futter sterben Tiere bei 0 Sättigung; spätestens mit 6 Stunden. Die Zeit läuft auch in anderen Spielbereichen weiter. Neuladen setzt alles zurück.
+        </p>
+        <p id="tierPlaetze">
+        </p>
+        <p id="tierZimmerMeldung" role="status">
+        </p>
+        <h3>
+          Deine Tiere
+        </h3>
+        <div id="meineTiere">
+        </div>
+        <h3>
+          Ein Tier aufnehmen
+        </h3>
+        <div id="tierAuswahl">
+        </div>
+        <button id="haustiereSchliessen" type="button">
+          Zurück zum Labor
+        </button>
+      </dialog>
+      <dialog id="kueche" aria-labelledby="kuecheTitel">
+        <h2 id="kuecheTitel">
+          🍳 Deine Küche
+        </h2>
+        <p>
+          Zukunftstag: Apfel · Lehrling: Brot · Assistent: Käse · Doktor: Kartoffel · Professor: Fisch · Da Vinci: Reis.
+        </p>
+        <p>
+          Belohnungen enthalten zufällig eine Zutat deiner gewählten Stufe oder einer tieferen. Kochen verbraucht die Zutaten und gibt ein sättigenderes Gericht.
+        </p>
+        <p id="kuechenMeldung" role="status">
+        </p>
+        <h3>
+          Dein Vorrat
+        </h3>
+        <ul id="speisekammer">
+        </ul>
+        <h3>
+          Rezepte
+        </h3>
+        <div id="rezepte">
+        </div>
+        <button id="kuecheSchliessen" type="button">
+          Zurück zum Labor
+        </button>
+      </dialog>
+      <dialog id="werkstatt" aria-labelledby="werkstattTitel">
+        <h2 id="werkstattTitel">
+          🔧 Deine Werkstatt
+        </h2>
+        <section id="baustellenWerkstatt" class="baustellen" aria-label="Baustellen am Labor" hidden>
+        </section>
+        <details id="werkbank">
+          <summary>
+            ✨ Werkbank
+          </summary>
+          <p id="werkbankSchluessel">
+            🔑 Schlüssel: 0
+          </p>
+          <p>
+            Ein Schlüssel öffnet einen Tresor: magischer Stift oder magisches Papier!
+          </p>
+          <button id="tresorOeffnen" type="button" disabled>
+            🔒 Tresor öffnen – 1 Schlüssel
+          </button>
+          <p id="tresorMeldung" role="status">
+            Verdiene Schlüssel in den Zusatzlevels.
+          </p>
+          <h3>
+            🖊️ Ein Item zeichnen
+          </h3>
+          <p id="zauberVorrat">
+          </p>
+          <label for="zeichenItem">
+            Welches Item zeichnest du?
+          </label>
+          <select id="zeichenItem">
+          </select>
+          <p>
+            Zeichne mit Maus oder Finger. Deine Auswahl bestimmt das Item.
+          </p>
+          <canvas id="zeichenblatt" width="500" height="260" aria-label="Zeichenfläche für dein ausgewähltes Item">
+          </canvas>
+          <button id="zeichnungLoeschen" type="button">
+            Zeichnung löschen
+          </button>
+          <button id="zeichnungVerwandeln" type="button" disabled>
+            ✨ Zeichnung verwandeln
+          </button>
+          <p>
+            Verbraucht: 1 magischer Stift + 1 magisches Papier.
+          </p>
+          <p id="zeichenMeldung" role="status">
+          </p>
+        </details>
+        <p id="bauinfo" role="status">
+        </p>
+        <p>
+          Nach jedem Einsatz braucht deine Maschine Wartung. Gib das angezeigte Item ab, um sie zu flicken.
+        </p>
+        <div id="bauplaene">
+        </div>
+        <section id="sammlung" aria-labelledby="sammlungTitel">
+          <h2 id="sammlungTitel">
+            Deine Sammlung
+          </h2>
+          <p id="belohnung" role="status">
+            Startpaket: Klopapierrolle, Batterie, Seil und Zahnrad. Gewinne weitere Items mit vollem Balken!
+          </p>
+          <ul id="gegenstaende">
+          </ul>
+          <small>
+            Die Sammlung bleibt bis zum Neuladen der Seite erhalten.
+          </small>
+        </section>
+        <button id="werkstattSchliessen" type="button" autofocus>
+          Zurück zum Labor
+        </button>
+      </dialog>
+    </main>
+    <script src="spiel.js">
+    </script>
+    <script src="haustiere.js">
+    </script>
+  </body>
+</html>

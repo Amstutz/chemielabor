@@ -1,0 +1,21 @@
+DEUTSCH-MONSTERSCHLEUDER
+Direkt über «Deutsch-Monsterschleuder spielen» starten, ohne vorherige Rechenrunde.
+Die Monsterburgen bleiben bis zum ersten abgeschlossenen Rechenlevel gesperrt. Zwölf zufällige Sätze mit je einem Fehler.
+Drei Monster tragen mögliche Korrekturen, genau eine ist richtig. Fünf Schüsse.
+Der Ball stoppt beim ersten getroffenen Monster. Falsche Treffer geben nichts.
+Ein richtiger Treffer gibt einmal pro Satz ein Sammelitem. Der korrigierte
+Satz wird angezeigt. «Nächster Satz» beginnt eine neue Aufgabe.
+
+Schweizer Kreuz (weiss auf Rot, vom Nutzer als SWISS-Kreuz erklärt): 1 %.
+Sonst gleichwahrscheinlich Bier, Wurst, Friedrich-Schmerz-Figur oder Kartoffel.
+Die neuen Gegenstände sind Spielbauteile, kein Essen. Sie stehen bei der
+Sammlung und werden von normalen Essens- und Itembelohnungen getrennt geführt.
+
+Erfundene Spielmaschinen, keine echten Siemens-Produkte:
+Siemens-Wortroboter: Bier, Wurst, Friedrich-Schmerz-Figur, Kartoffel.
+Stärke Robotik, Wartung mit einer Kartoffel.
+Siemens-Kreuzschild: Schweizer Kreuz und Kartoffel.
+Stärke Abwehr, Wartung mit einer Kartoffel.
+
+Der bisherige Monsterburgen-Modus und seine Freischaltungen bleiben erhalten.
+Ein Deutsch-Sieg zählt nicht als abgeschlossenes Monsterburgen-Level.
